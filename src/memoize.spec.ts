@@ -52,11 +52,6 @@ describe('memoize async correctly caches', () => {
       const sequence: number[] = [...Array(call_times).keys()];
       const repeat = rand_range(2, 10);
 
-      console.log(
-        times(repeat)
-          .map(() => sequence.map(i => cached_fn(i)))
-          .flat(),
-      );
       const results = await Promise.all(
         times(repeat)
           .map(() => sequence.map(i => cached_fn(i)))
